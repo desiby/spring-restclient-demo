@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <title>User Management application</title>
+</head>
+<body>
+<div class="container">
+    <h1>USERS</h1>
+
+    <a href="/user/new">
+        <button>Create new user</button>
+    </a>
+
+    <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td>
+                        <form th:method="delete" th:action="@{/}">
+                            <input type="hidden" name="id" th:value="${user.id}" />
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+</body>
+</html>
