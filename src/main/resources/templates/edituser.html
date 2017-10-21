@@ -8,12 +8,19 @@
 </head>
 <body>
 <div class="container">
-    <h1>CREATE USER</h1>
+    <h1>EDIT USER</h1>
 
     <div>
-        <form  th:object="${user}" th:action="@{/user}" method="post">
+        <form  th:object="${user}" th:action="@{/update}" th:method="put">
             <input type="hidden" th:field="*{id}"/>
             <input type="hidden" th:field="*{name}"/>
+            <div>
+                <label>User ID:</label>
+                <div>
+                    <input type="text" th:field="*{id}"/>
+                </div>
+            </div>
+            <br/>
             <div>
                 <label>User Name:</label>
                 <div>

@@ -2,9 +2,12 @@ package com.example.restclientdemo.client.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.validation.constraints.NotNull;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
     private Long id;
+    @NotNull
     private String name;
 
     public User(){}

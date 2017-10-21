@@ -4,6 +4,7 @@ import com.example.restclientdemo.client.service.RestClient;
 import com.example.restclientdemo.client.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -31,7 +32,7 @@ public class ClientController {
     @RequestMapping("user/new")
     public String newUser(Model model){
         model.addAttribute("user", new User());
-        return "userform";
+        return "newuser";
     }
 
     /**
@@ -41,9 +42,16 @@ public class ClientController {
      */
     @PostMapping("user")
     public String create(@Valid User user){
-        restClient.postUser(user);
-        System.out.println("posted");
-        return "redirect:/users";
+            restClient.postUser(user);
+            System.out.println("posted");
+            return "redirect:/users";
+
+    }
+
+    @RequestMapping("user/edit")
+    public String editUser(Model model){
+        model.addAttribute("user", new User());
+        return "edituser";
     }
 
     @PutMapping("update")

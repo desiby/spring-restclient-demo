@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <title>User Management application</title>
+</head>
+<body>
+<div class="container">
+    <h1>CREATE USER</h1>
+
+    <div>
+        <form  th:object="${user}" th:action="@{/user}" th:method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{name}"/>
+            <div>
+                <label>User Name:</label>
+                <div>
+                    <input type="text" th:field="*{name}"/>
+                </div>
+            </div>
+
+            <div >
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+</body>
+</html>
